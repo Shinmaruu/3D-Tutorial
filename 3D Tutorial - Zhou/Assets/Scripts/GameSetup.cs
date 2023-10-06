@@ -15,9 +15,10 @@ public class GameSetup : MonoBehaviour
     [SerializeField] Transform headBallPosition;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        ballRadius = ballPrefab.GetComponent<SphereCollider>().radius = 100f;
+        Debug.Log("The Program is starting");
+        ballRadius = ballPrefab.GetComponent<SphereCollider>().radius * 100f;
         ballDiameter = ballRadius * 2f;
         PlaceAllBalls();
     }
@@ -66,7 +67,7 @@ public class GameSetup : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             // inner loop are the balls in each row
-            for (int j = 0; i < NumInThisRow; j++)
+            for (int j = 0; j < NumInThisRow; j++)
             {
                 // check to see if 8 ball spot
                 if (i == 2 && j == 1)
@@ -100,7 +101,7 @@ public class GameSetup : MonoBehaviour
                 currentPosition += new Vector3(1, 0, 0).normalized * ballDiameter;
             }
             // once all the balls in the row have been placed, move to the next row
-            firstInRowPosition += new Vector3(-1, 0, -1).normalized * ballDiameter;
+            firstInRowPosition += Vector3.back * (Mathf.Sqrt(3) * ballRadius) + Vector3.left * ballRadius;
             currentPosition = firstInRowPosition;
             NumInThisRow++;
         }

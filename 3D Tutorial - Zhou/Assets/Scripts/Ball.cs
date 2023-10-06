@@ -21,9 +21,9 @@ public class Ball : MonoBehaviour
         
     }
     
-    public bool IsBallRed
+    public bool IsBallRed()
     {
-        get { return isRed; }
+        return isRed;
     }
 
     public bool IsCueBall()
@@ -59,6 +59,6 @@ public class Ball : MonoBehaviour
     {
         is8Ball = true;
 
-        GetComponent < Renderer>().material.color = Color.black;
+        GetComponent<Renderer>().material.color = Color.black;
     }
 }
