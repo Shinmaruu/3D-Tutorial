@@ -14,7 +14,6 @@ public class GameSetup : MonoBehaviour
     [SerializeField] Transform cueBallPosition;
     [SerializeField] Transform headBallPosition;
 
-    // Start is called before the first frame update
     private void Awake()
     {
         Debug.Log("The Program is starting");
